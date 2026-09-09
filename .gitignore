@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambiente virtual
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Banco/cache
+*.sqlite3
+
+# Logs
+*.log
+
+# Testes
+.pytest_cache/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

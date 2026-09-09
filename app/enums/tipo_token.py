@@ -1,0 +1,7 @@
+from enum import Enum
+
+
+class TipoToken(str, Enum):
+    VERIFICACAO_EMAIL = "VERIFICACAO_EMAIL"
+    RECUPERACAO_SENHA = "RECUPERACAO_SENHA"
+    DOIS_FATORES = "DOIS_FATORES"

@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routers import autenticacao
 
 from app.routers import perfil
+from app.routers import analises
 
 from app.routers import recuperacao_senha
 
@@ -46,6 +47,7 @@ app.include_router(
 )
 
 app.include_router(contato_router)
+app.include_router(analises.router)
 
 @app.get("/")
 def raiz():

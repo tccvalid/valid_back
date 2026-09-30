@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from fastapi.responses import RedirectResponse
 import requests
@@ -45,6 +45,9 @@ def teste_google(
 
 @router.get("")
 def login_google():
+
+    if not GOOGLE_CLIENT_ID:
+        raise HTTPException(status_code=503, detail="Login com Google não configurado. Defina GOOGLE_CLIENT_ID e GOOGLE_CLIENT_SECRET no .env.")
 
     params = {
         "client_id": GOOGLE_CLIENT_ID,

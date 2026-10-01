@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.database import Base, engine
+from app.models.analise import Analise
+
 from app.routers import autenticacao
 
 from app.routers import perfil
@@ -9,7 +12,11 @@ from app.routers import recuperacao_senha
 
 from app.routers import google_auth
 
+from app.routers import analises
+
 from app.routers.contato import router as contato_router
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="VALID API",
@@ -43,6 +50,10 @@ app.include_router(
 
 app.include_router(
     google_auth.router
+)
+
+app.include_router(
+    analises.router
 )
 
 app.include_router(contato_router)
